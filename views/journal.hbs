@@ -2,12 +2,12 @@
   <div class="row card-body">
 
       <div class="col-md-2">
-    <ul>
+    {{!-- <ul>
       <li>entry 1</li>
       <li>entry 1</li>
       <li>entry 1</li>
       <li> add an entyr</li>
-    </ul>
+    </ul> --}}
   </div>
   <div class="col-md-10">
     <div>
@@ -17,20 +17,22 @@
   </div>
 
   <div class="form-group row">
+
       <div class="col-md-6">
-           <label for="exampleFormControlInput1">Date</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">   
+          <input type="text" class="form-control"  placeholder="Enter title">   
       </div>
 
       <div class="col-md-6">
-           <label for="exampleFormControlInput1">Email address</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">   
+          <input type="text" class="form-control" placeholder="Enter Date">   
       </div>
    
   </div>
 
  
   <div class="form-group row">
+
+
+
     <div class="col-md-6">
        <label for="exampleFormControlTextarea1">Example textarea</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="15"></textarea>
@@ -44,7 +46,14 @@
               <li>Todo 1</li>
               <li>Todo 2</li>
               <li>Todo 3</li>
-              <li><a href="#">add to list</a></li>
+
+              <form action="#">
+                <div class="form-group row">
+                  <input type="email" class="form-control col-md-8" id="exampleInputEmail1" placeholder="Enter new task">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            
             </ul>
          </div>
 
@@ -54,7 +63,12 @@
               <li>Goal 1</li>
               <li>Goal 2</li>
               <li>Goal 3</li>
-              <li><a href="#">add to list</a></li>
+               <form action="#">
+                <div class="form-group row">
+                  <input type="email" class="form-control col-md-8" id="exampleInputEmail1" placeholder="Enter new Goal">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
             </ul>
          </div>
          
