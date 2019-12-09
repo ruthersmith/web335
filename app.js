@@ -11,6 +11,7 @@ var goalsRouter = require('./routes/goals');
 
 var app = express();
 
+
 // new stuff starts here
 var session = require('express-session');
 var flash = require('express-flash');
@@ -84,6 +85,10 @@ app.use(passport.session());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+//setting up partials for hbs
+var hbs = require('hbs');
+hbs.registerPartials(__dirname + '/views/partials');
 
 app.use(logger('dev'));
 app.use(express.json());
