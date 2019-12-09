@@ -1,87 +1,89 @@
-<div class="container">
-  <div class="row card-body">
+{{>nav}}
 
-      <div class="col-md-2">
-    {{!-- <ul>
-      <li>entry 1</li>
-      <li>entry 1</li>
-      <li>entry 1</li>
-      <li> add an entyr</li>
-    </ul> --}}
+<div class="container-fluid">
+
+  <div>
+      <div id="journal-entries" class="journal-sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-1 journal-sidebar-search" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <a href="#">Entry 1</a>
+      <a href="#">Entry 1</a>
+      <a href="#">Entry 1</a>
+      <a href="#">Entry 1</a>
+    </div>
   </div>
-  <div class="col-md-10">
-    <div>
-      <form>
-        <div class="form-group">
-          <h1>My daily Journal</h1>
-  </div>
 
-  <div class="form-group row">
+  <div class="row" id="journal-main"  style="background-color: white; margin:10px;padding-bottom:10px"> 
 
-      <div class="col-md-6">
-          <input type="text" class="form-control"  placeholder="Enter title">   
+    <div class="col-md-12 ">
+          <div class="form-row">
+        <div class="col-md-12">
+          <input style="border: 0;box-shadow: none" type="text" class="form-control border-0" placeholder="Title">
+        </div>
       </div>
 
-      <div class="col-md-6">
-          <input type="text" class="form-control" placeholder="Enter Date">   
+      <div class="form-row">
+        <div class="col-md-4">
+          <input type="text" class="journal-input form-control" readonly placeholder="Date:12/8/2019">
+        </div>
       </div>
-   
-  </div>
-
- 
-  <div class="form-group row">
-
-
-
-    <div class="col-md-6">
-       <label for="exampleFormControlTextarea1">Example textarea</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="15"></textarea>
     </div>
 
-     <div class="col-md-6">
-       <div class="row">
-         <div class="col-md-12">
-             <label for="exampleFormControlTextarea1">Todo List</label>
-            <ul>
-              <li>Todo 1</li>
-              <li>Todo 2</li>
-              <li>Todo 3</li>
+    <div class="col-md-9 ">
+      <div class="mt-1">
+         <a href="" id="openbtn"  onclick="openNav();return false">&#8592; Previous Entries</a> 
+         <a href="" class="float-right">save now</a>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="19"></textarea>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="col-md-12">
+            <label for="">Todo List</label>
+       
+             <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+
+              
 
               <form action="#">
                 <div class="form-group row">
-                  <input type="email" class="form-control col-md-8" id="exampleInputEmail1" placeholder="Enter new task">
+                  <input type="text" class="form-control col-md-8 mr-1" id="" placeholder="Enter new task">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
             
-            </ul>
          </div>
 
-          <div class="col-md-12">
-             <label for="exampleFormControlTextarea1">Weekly goal </label>
-            <ul>
-              <li>Goal 1</li>
-              <li>Goal 2</li>
-              <li>Goal 3</li>
-               <form action="#">
-                <div class="form-group row">
-                  <input type="email" class="form-control col-md-8" id="exampleInputEmail1" placeholder="Enter new Goal">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
-            </ul>
-         </div>
          
-         
-       </div>
-      
     </div>
-   
-  </div>
-</form>
-    </div>
-
-  </div>
 
   </div>
 </div>
+
+<script>
+    /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+function openNav() {
+  document.getElementById("journal-entries").style.width = "250px";
+  document.getElementById("journal-main").style.marginLeft = "250px";
+  document.getElementById('openbtn').style.display = "none";
+}
+
+/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+function closeNav() {
+  document.getElementById("journal-entries").style.width = "0";
+  document.getElementById("journal-main").style.marginLeft = "0";
+  document.getElementById('openbtn').style.display = "block";
+}
+</script>

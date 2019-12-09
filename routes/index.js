@@ -87,4 +87,9 @@ function createUser(req, res, next){
 
 
 
+router.get('/test', function(req, res, next) {
+  res.render('test', { title: 'Express' });
+});
+
+
 module.exports = router;
