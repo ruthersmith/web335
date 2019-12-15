@@ -1,5 +1,6 @@
 {{>nav}}
 
+
 <div class="container-fluid">
 
   <div>
@@ -17,18 +18,18 @@
     </div>
   </div>
 
-  <div class="row" id="journal-main"  style="background-color: white; margin:10px;padding-bottom:10px"> 
+  <div class="row" id="journal-main"  style=" margin:10px;padding-bottom:10px"> 
 
     <div class="col-md-12 ">
           <div class="form-row">
         <div class="col-md-12">
-          <input style="border: 0;box-shadow: none" type="text" class="form-control border-0" placeholder="Title">
+          <input style="border: 0;box-shadow: none; background:none" type="text" class="form-control border-0" placeholder="Title">
         </div>
       </div>
 
       <div class="form-row">
         <div class="col-md-4">
-          <input type="text" class="journal-input form-control" readonly placeholder="Date:12/8/2019">
+          <input type="text" id="journal_date" class="journal-input form-control" readonly>
         </div>
       </div>
     </div>
@@ -44,22 +45,21 @@
     <div class="col-md-3">
         <div class="col-md-12">
             <label for="">Todo List</label>
-       
-             <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+
+
+            <div class="list">
+                <div class="todo-task mb-1">
+              lqewqd
+              <i class="fas fa-trash-alt" aria-hidden="true"></i>
+              <i class="fas fa-check" aria-hidden="true"></i>
+              </div>
             </div>
+          
 
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-
-              
-
-              <form action="#">
-                <div class="form-group row">
-                  <input type="text" class="form-control col-md-8 mr-1" id="" placeholder="Enter new task">
+              <form id="todo_form">
+                <div class="form-group form-row">
+                  <input type="text" name="date" id="today" hidden>
+                  <input type="text" class="form-control col-md-8 mr-1" name="todo" placeholder="Enter new task">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
@@ -72,18 +72,5 @@
   </div>
 </div>
 
-<script>
-    /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
-function openNav() {
-  document.getElementById("journal-entries").style.width = "250px";
-  document.getElementById("journal-main").style.marginLeft = "250px";
-  document.getElementById('openbtn').style.display = "none";
-}
+  <script src="/javascripts/journal_helpers.js"></script>
 
-/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
-function closeNav() {
-  document.getElementById("journal-entries").style.width = "0";
-  document.getElementById("journal-main").style.marginLeft = "0";
-  document.getElementById('openbtn').style.display = "block";
-}
-</script>

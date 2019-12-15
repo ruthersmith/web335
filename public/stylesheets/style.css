@@ -65,15 +65,31 @@ a {
 .journal-input{
   border: 0 !important;  
   box-shadow: none !important ;
+  background: none !important;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #journal-main {
   transition: margin-left .5s; /* If you want a transition effect */
+  background-color: rgba(255, 255, 255, 0.5);;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
+}
+
+.todo-task{
+  width: 100%;
+  background: rgba(255,255,255,0.5);
+  padding: 5px;
+
+  overflow: hidden;
+}
+
+.todo-task i{
+  float: right;
+  margin-left: 20px;
+  cursor: pointer;
 }
