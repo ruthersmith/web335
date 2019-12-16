@@ -1,6 +1,5 @@
 {{>nav}}
 
-
 <div class="container-fluid">
 
   <div>
@@ -45,21 +44,13 @@
     <div class="col-md-3">
         <div class="col-md-12">
             <label for="">Todo List</label>
-
-
-            <div class="list">
-                <div class="todo-task mb-1">
-              lqewqd
-              <i class="fas fa-trash-alt" aria-hidden="true"></i>
-              <i class="fas fa-check" aria-hidden="true"></i>
-              </div>
-            </div>
+            <div id="todo-list" class="list"></div>
           
 
               <form id="todo_form">
                 <div class="form-group form-row">
                   <input type="text" name="date" id="today" hidden>
-                  <input type="text" class="form-control col-md-8 mr-1" name="todo" placeholder="Enter new task">
+                  <input type="text" class="form-control col-md-8 mr-1" id="add-todo-field" name="todo" placeholder="Enter new task">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
@@ -71,6 +62,8 @@
 
   </div>
 </div>
+
+
 
   <script src="/javascripts/journal_helpers.js"></script>
 

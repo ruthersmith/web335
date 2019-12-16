@@ -14,6 +14,20 @@ var add_todo_to_db =  function (req,res){
   
 }
 
+
+
+var get_from_db =  function(sql,values,res){
+  client.query(sql,values, function(err,result){
+    if (err) {
+      console.log("sql error ");
+    }
+    console.log("first return of rows "+ result.rows);
+    res.send(result.rows);
+  });
+}
+
+
+
 function commit_to_db(sql,values){
     client.query(sql, values, function(err, result) {
         if (err) {
@@ -25,3 +39,4 @@ function commit_to_db(sql,values){
 }
 
 module.exports.add_todo_to_db = add_todo_to_db;
+module,exports.get_from_db = get_from_db;
