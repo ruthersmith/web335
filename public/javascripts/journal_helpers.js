@@ -1,6 +1,7 @@
 $(document).ready(function(){
     setDate();
     ajax('GET','/journal/get_todo',[],populateTodoList);
+    ajax('GET', '/journal/get_journals',[],populateJournalEntryLink);
   
     $("button").click(function(e){
       e.preventDefault();
@@ -41,6 +42,16 @@ $(document).ready(function(){
     });
   }
 
+  
+  function populateJournalEntryLink(result){
+    result.forEach(element => {
+      console.log(element.title);
+      $('#journal-entries').append(`<a href="#">${element.title}</a>`);
+    });
+    
+  }
+
+
   function delete_todo(todo_id){
     ajax('DELETE',`/journal/delete_todo/${todo_id}`,[],updateTodoList());
   }
@@ -79,6 +90,7 @@ $(document).ready(function(){
     data = {}
     data.title = document.getElementById('journal-title').value;
     data.journal_entry = document.getElementById('journal-entry-area').value;
+    data.date = getDate();
     ajax('POST','/journal/save_journal',data);
   }
 
