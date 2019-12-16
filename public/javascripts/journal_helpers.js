@@ -1,39 +1,33 @@
 $(document).ready(function(){
     setDate();
-    ajaxGet('/journal/get_todo',[],populateTodoList);
+    ajax('GET','/journal/get_todo',[],populateTodoList);
   
     $("button").click(function(e){
       e.preventDefault();
       var this_data = $('#todo_form').serialize();
-      ajaxPost('/journal/add_todo', this_data,uppdateTodoList);
+      ajax('POST','/journal/add_todo', this_data,updateTodoList());
     });
+
+    document.getElementById('save-journal-link').onclick = saveJournal;
   
   });
 
-  function ajaxPost(get_url,get_data,successCall){
-      $.ajax({
-        type: "POST",
-        url: get_url,
-        data:get_data,
-        success: successCall,
-        error:function(jqXhr, textStatus, errorMessage){
-          alert(errorMessage);
-        }
-    });
-  }
 
-
-  function ajaxGet(get_url, get_data,successCall){
+  function ajax(my_type,my_url,my_data,successCall){
     $.ajax({
-      url: get_url,
-      data: get_data,
+      type: my_type,
+      url: my_url,
+      data: my_data,
       success: successCall,
+      error:function(jqXhr, textStatus, errorMessage){
+        alert(errorMessage);
+      }
     });
   }
 
-  function uppdateTodoList(){
-    $('add-todo-field').val('');
-    ajaxGet('/journal/get_todo',[],populateTodoList);
+  function updateTodoList(){
+    document.getElementById('add-todo-field').innerText = " ";
+    ajax('GET','/journal/get_todo',[],populateTodoList);
   }
 
   function populateTodoList(result){
@@ -41,10 +35,14 @@ $(document).ready(function(){
     result.forEach(element => {
       $('#todo-list').append(`
       <div class='todo-task mb-1'>${element.todo}
-      <a href=""><i class="fas fa-trash-alt" aria-hidden="true"></i></a>
+      <a onclick="delete_todo(${element.todo_id})"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>
       <a href=""><i class="fas fa-check" aria-hidden="true"></i></a>
       </div>`);  
     });
+  }
+
+  function delete_todo(todo_id){
+    ajax('DELETE',`/journal/delete_todo/${todo_id}`,[],updateTodoList());
   }
   
   function getDate(){
@@ -75,3 +73,12 @@ $(document).ready(function(){
     $('#journal_date').val(today);
     $('#today').val(today);
   }
+
+  function saveJournal(e){
+    e.preventDefault();
+    data = {}
+    data.title = document.getElementById('journal-title').value;
+    data.journal_entry = document.getElementById('journal-entry-area').value;
+    ajax('POST','/journal/save_journal',data);
+  }
+
