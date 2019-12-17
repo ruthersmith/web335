@@ -3,87 +3,65 @@
 <div class="container-fluid">
 
   <div>
-      <div id="journal-entries" class="journal-sidebar">
+    <div id="journal-entries" class="journal-sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-1 journal-sidebar-search" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control mr-sm-1 journal-sidebar-search" type="search" placeholder="Search"
+          aria-label="Search">
       </form>
 
-      <a href="#">Entry 1</a>
-      <a href="#">Entry 1</a>
-      <a href="#">Entry 1</a>
-      <a href="#">Entry 1</a>
     </div>
   </div>
-
-  <div class="row" id="journal-main"  style="background-color: white; margin:10px;padding-bottom:10px"> 
+  <a href=""></a>
+  <div class="row" id="journal-main" style=" margin:10px;padding-bottom:10px">
 
     <div class="col-md-12 ">
-          <div class="form-row">
+      <div class="form-row">
         <div class="col-md-12">
-          <input style="border: 0;box-shadow: none" type="text" class="form-control border-0" placeholder="Title">
+          <input style="border: 0;box-shadow: none; background:none"  id="journal-title" type="text" class="form-control border-0"
+            placeholder="Title">
         </div>
       </div>
 
       <div class="form-row">
         <div class="col-md-4">
-          <input type="text" class="journal-input form-control" readonly placeholder="Date:12/8/2019">
+          <input type="text" id="journal_date" class="journal-input form-control" readonly>
         </div>
       </div>
     </div>
 
     <div class="col-md-9 ">
       <div class="mt-1">
-         <a href="" id="openbtn"  onclick="openNav();return false">&#8592; Previous Entries</a> 
-         <a href="" class="float-right">save now</a>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="19"></textarea>
+        <a href="" id="openbtn" onclick="openNav();return false">&#8592; Previous Entries</a>
+        <a href="" id="save-journal-link" class="float-right">save now</a>
+        <textarea class="form-control" id="journal-entry-area" rows="19"></textarea>
       </div>
     </div>
 
     <div class="col-md-3">
-        <div class="col-md-12">
-            <label for="">Todo List</label>
-       
-             <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
+      <div class="col-md-12">
+        <label for="">Todo List</label>
+        <div id="todo-list" class="list"></div>
 
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
 
-              
+        <form id="todo_form">
+          <div class="form-group form-row">
+            <input type="text" name="date" id="today" hidden>
+            <input type="text" class="form-control col-md-8 mr-1" id="add-todo-field" name="todo"
+              placeholder="Enter new task">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
 
-              <form action="#">
-                <div class="form-group row">
-                  <input type="text" class="form-control col-md-8 mr-1" id="" placeholder="Enter new task">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
-            
-         </div>
+      </div>
 
-         
+
     </div>
 
   </div>
 </div>
 
-<script>
-    /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
-function openNav() {
-  document.getElementById("journal-entries").style.width = "250px";
-  document.getElementById("journal-main").style.marginLeft = "250px";
-  document.getElementById('openbtn').style.display = "none";
-}
 
-/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
-function closeNav() {
-  document.getElementById("journal-entries").style.width = "0";
-  document.getElementById("journal-main").style.marginLeft = "0";
-  document.getElementById('openbtn').style.display = "block";
-}
-</script>
+
+<script src="/javascripts/journal_helpers.js"></script>
