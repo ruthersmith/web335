@@ -1,9 +1,8 @@
 {{>nav}}
 
 <div class="container-fluid">
-
-  {{>journal_sidebar}}
-
+   {{>journal_sidebar}}
+    
   <div class="row" id="journal-main" style=" margin:10px;padding-bottom:10px">
 
     <div class="col-md-12 ">
@@ -29,43 +28,14 @@
       </div>
     </div>
 
-    <div class="col-md-3">
-      <div class="col-md-12">
-        <label for="">Todo List</label>
-        <div id="todo-list" class="list"></div>
-
-
-        <form id="todo_form">
-          <div class="form-group form-row">
-            <input type="text" name="date" id="today" hidden>
-            <input type="text" class="form-control col-md-8 mr-1" id="add-todo-field" name="todo"
-              placeholder="Enter new task">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </form>
-
-      </div>
-
-
-    </div>
-
   </div>
+   
 </div>
 
 <script>
   $(document).ready(function(){
     setDate();
-    ajax('GET','/journal/get_todo',[],populateTodoList);
-    ajax('GET', '/journal/get_journals',[],populateJournalEntryLink);
-  
-    $("button").click(function(e){
-      e.preventDefault();
-      var this_data = $('#todo_form').serialize();
-      ajax('POST','/journal/add_todo', this_data,updateTodoList());
-    });
-
-    document.getElementById('save-journal-link').onclick = saveJournal;
-  
+    ajax('GET', '/journal/get_journals',[],populateJournalEntry);
   });
 </script>
 
