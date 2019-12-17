@@ -1,20 +1,4 @@
-$(document).ready(function(){
-    setDate();
-    ajax('GET','/journal/get_todo',[],populateTodoList);
-    ajax('GET', '/journal/get_journals',[],populateJournalEntryLink);
-  
-    $("button").click(function(e){
-      e.preventDefault();
-      var this_data = $('#todo_form').serialize();
-      ajax('POST','/journal/add_todo', this_data,updateTodoList());
-    });
-
-    document.getElementById('save-journal-link').onclick = saveJournal;
-  
-  });
-
-
-  function ajax(my_type,my_url,my_data,successCall){
+function ajax(my_type,my_url,my_data,successCall){
     $.ajax({
       type: my_type,
       url: my_url,
@@ -45,10 +29,16 @@ $(document).ready(function(){
   
   function populateJournalEntryLink(result){
     result.forEach(element => {
-      console.log(element.title);
-      $('#journal-entries').append(`<a href="#">${element.title}</a>`);
+      $('#journal-entries').append(`<a href="/journal/saved_entry/${element.id}">${element.title}</a>`);
     });
+  }
+
+  function populateJournalEntry(result){
+    populateJournalEntryLink(result);
     
+    //var currentUser = JSON.parse('{{{ entry_id}}}');
+    // let this_entry = result.find(element => element.id == entry_id);
+    console.log(result);
   }
 
 
@@ -86,7 +76,6 @@ $(document).ready(function(){
   }
 
   function saveJournal(e){
-    e.preventDefault();
     data = {}
     data.title = document.getElementById('journal-title').value;
     data.journal_entry = document.getElementById('journal-entry-area').value;

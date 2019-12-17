@@ -5,7 +5,12 @@ var journal_model = require('../models/journal_model');
 
 
 router.get('/', function(req, res, next) {
-  res.render('journal', {user: req.user}); 
+  if(req.user){
+    res.render('journal', {user: req.user}); 
+  }else{
+    res.redirect('/login');
+  }
+  
 });
 
 router.get('/get_todo',function(req,res,next){
@@ -37,7 +42,12 @@ router.get('/get_journals', function(req,res,next){
   let sql = 'SELECT * FROM journal_entry where user_id = $1';
   let values = [req.user.id];
   journal_model.get_from_db(sql,values,res);
-})
+});
+
+router.get('/saved_entry/:id', function(req,res,next){
+  let id  = parseInt(req.params.id);
+  res.render('saved_journal', {user: req.user, entry_id:id}); 
+});
 
 
 module.exports = router;

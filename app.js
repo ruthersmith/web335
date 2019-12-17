@@ -89,6 +89,10 @@ app.set('view engine', 'hbs');
 //setting up partials for hbs
 var hbs = require('hbs');
 hbs.registerPartials(__dirname + '/views/partials');
+//Accessing handlebars variable inside client js file
+hbs.registerHelper('json', function(context) {
+  return JSON.stringify(context);
+});
 
 app.use(logger('dev'));
 app.use(express.json());
