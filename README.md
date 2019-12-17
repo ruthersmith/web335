@@ -1,5 +1,5 @@
 # web335
-Welcome To Yourself developement hub
+Welcome to your developement hub
 Here you can keep track of your goals and your habit, and also keep a journal filled with your daily tasks and notes. 
 you can write about who you want to be and write a plan on how you want to get there
 you can link to outside blog and resources that you find helpful and follow up on those resources.
@@ -13,12 +13,12 @@ This is where you figure out who you want to be and step into that person
   - Start creating journal entries, daily todos, and tracking your goals using the top navbar
   
 # Packages Used:
-Express
-Bcrypt
-Handlebars
-Bootstrap
-jQuery AJAX
-Heroku
-node pg
-PostGres - Database
-dotenv
+  - Express
+  - Bcrypt
+  - Handlebars
+  - Bootstrap
+  - jQuery AJAX
+  - Heroku
+  - node pg
+  - PostGres - Database
+  - dotenv
